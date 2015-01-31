@@ -64,7 +64,7 @@ function removeDuplicates(array) {
     // здесь должен быть ваш код
 }
 
-test("Удаление повторяющихся элементов", function() {
+test("Повторяющиеся элементы", function() {
     equal(duplicates([1, 2, 3, 4, 5]), false);
     equal(duplicates([1, 2, 3, 2]), true);
 
