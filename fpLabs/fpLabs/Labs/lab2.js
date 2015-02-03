@@ -79,7 +79,7 @@ function bag(n) {
 }
 
 test("Сумка", function () {
-    bag("hello", [['h', 1], ['e', 1], ['l', 2], ['o', 1]]);
+    equal(bag("hello", [['h', 1], ['e', 1], ['l', 2], ['o', 1]]));
 });
 
 // функция удаляет n-ное входжение символа letter в строке list
@@ -88,5 +88,30 @@ function removeItem(n, letter, list) {
 }
 
 test("Элементы и позиции", function () {
-    bag(removeItem(1, "l", "hello"), "helo");
+    equal(removeItem(1, "l", "hello"), "helo");
+});
+
+// влзвращает True, если list2 начинается с list1
+function isPrefixOf(list1, list2) {
+    // здесь должен быть ваш код
+}
+
+test("Префикс", function() {
+    equal(isPrefixOf([], []), true);
+    equal(isPrefixOf([], [1]), true);
+    equal(isPrefixOf([], [1]), true);
+    equal(isPrefixOf([1], []), false);
+    equal(isPrefixOf([1, 2], [1]), false);
+    equal(isPrefixOf([1, 2], [1, 2, 3]), true);
+});
+
+// возвращает массив степеней 2-ки, сумма которых дает value
+// подсказка: использовать рекурсию
+function getBits(value) {
+    // здесь должен быть ваш код
+}
+
+test("Разложение на степени двойки", function() {
+    equal(getBits(129), [1, 128]);
+    equal(getBits(77), [1, 4, 8, 64]);
 });
