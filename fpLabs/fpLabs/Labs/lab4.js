@@ -23,7 +23,7 @@ function bag(n) {
 }
 
 test("Сумка", function () {
-    equal(bag("hello", [['h', 1], ['e', 1], ['l', 2], ['o', 1]]));
+    deepEqual(bag("hello", [['h', 1], ['e', 1], ['l', 2], ['o', 1]]));
 });
 
 // функция удаляет n-ное входжение символа letter в строке list
@@ -56,6 +56,6 @@ function getBits(value) {
 }
 
 test("Разложение на степени двойки", function() {
-    equal(getBits(129), [1, 128]);
-    equal(getBits(77), [1, 4, 8, 64]);
+    deepEqual(getBits(129), [1, 128]);
+    deepEqual(getBits(77), [1, 4, 8, 64]);
 });
