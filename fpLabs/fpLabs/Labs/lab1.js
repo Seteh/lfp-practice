@@ -33,7 +33,7 @@ function smallestFactor(n) {
 }
 
 // подсчиталь количество делителей n в диапазоне 1..n.
-function numFactors(n) {
+function numFactor(n) {
     // здесь должен быть ваш код
 }
 
