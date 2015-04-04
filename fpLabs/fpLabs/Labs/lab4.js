@@ -17,13 +17,19 @@ test("Простые числа", function () {
     equal(isSumOfPrimes(8), false);
 });
 
+String.prototype.forEach = function (func) {
+    for (var i = 0; i < this.length; i++) {
+        func(this[i], i, this);
+    }
+}
+
 // функция преобразует итерируемый объект в массив пар значение - количество вхождений
 function bag(n) {
     // здесь должен быть ваш код
 }
 
 test("Сумка", function () {
-    deepEqual(bag("hello", [['h', 1], ['e', 1], ['l', 2], ['o', 1]]));
+    deepEqual(bag("hello"), [['h', 1], ['e', 1], ['l', 2], ['o', 1]]);
 });
 
 // функция удаляет n-ное входжение символа letter в строке list
