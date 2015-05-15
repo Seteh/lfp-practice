@@ -2,13 +2,13 @@
 
 // возвращает длину массива
 // требования: использовать функции map и sum
-function lenght(array) {
+function arrayLenght(array) {
     // здесь должен быть ваш код
 }
 
 test("Длина массива", function() {
-    equal(composeList([]), 0);
-    equal(composeList([1, 2, 0, 3 ]), 4);
+    equal(arrayLenght([]), 0);
+    equal(arrayLenght([1, 2, 0, 3]), 4);
 });
 
 // возвращает массив из n элементов, каждый из которых сгенерирован функцией gen
@@ -22,7 +22,7 @@ function gen(n, value) {
 }
 
 test("Генерация массива", function() {
-    equal(listOf(3, function() { gen(2, 5); }), [[5, 5], [5, 5], [5, 5]]);
+    deepEqual(listOf(3, function() { return gen(2, 5); }), [[5, 5], [5, 5], [5, 5]]);
 });
 
 // напишите функцию gen, создающую список элементов заданной длины с возрастающими значениями
@@ -31,5 +31,5 @@ function genOrdered(n) {
 }
 
 test("Генерация упорядоченного массива", function() {
-    equal(listOf(3, function() { genOrdered(2); }), [[0, 1], [0, 1], [0, 1]]);
+    deepEqual(listOf(3, function() { return genOrdered(2); }), [[0, 1], [0, 1], [0, 1]]);
 });
