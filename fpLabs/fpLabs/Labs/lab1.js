@@ -3,7 +3,10 @@
 // возвращает 1*1 + 2*2 + ... + n*n
 // требования: использовать рекурсию
 function sumsq(n) {
-    // здесь должен быть ваш код
+    if(n === 1)
+        return n;
+
+    return n * n + sumsq(n - 1);
 }
 
 test("Сумма квадратов", function() {
@@ -13,7 +16,10 @@ test("Сумма квадратов", function() {
 
 // вычисляет n-е чисто Fibonacci
 function fib(n) {
-    // здесь должен быть ваш код
+    if(n < 3)
+        return 1;
+
+    return fib(n - 1) + fib(n - 2);
 }
 
 test("Числа Фибоначчи", function() {
@@ -29,12 +35,32 @@ test("Числа Фибоначчи", function() {
 // возвращает наименьший делитель числа n больший 1.
 // подсказка: используйте вспомогательную функцию nextFactor k n которая возвращает ниаменьший делитель n больший k. smallestFactor использует nextFactor, и nextFactor рекурсивен.
 function smallestFactor(n) {
-    // здесь должен быть ваш код
+    var nextFactor = function(k, n) {
+        if(n % k === 0)
+            return k;
+
+        return nextFactor(k + 1, n);
+    };
+
+    if(n === 1)
+        return 1;
+
+    return nextFactor(2, n);
 }
 
 // подсчиталь количество делителей n в диапазоне 1..n.
 function numFactor(n) {
-    // здесь должен быть ваш код
+    var numFactorCore = function(i, n) {
+        if(n < i)
+            return 0;
+
+        if(n % i === 0)
+            return 1 + numFactorCore(i + 1, n);
+
+        return numFactorCore(i + 1, n);
+    };
+
+    return numFactorCore(1, n);
 }
 
 test("Делители", function() {
@@ -47,10 +73,9 @@ test("Делители", function() {
 
 // Перемножает все элементы массива между собой.
 function multiply(array) {
-    // здесь должен быть ваш код
+    return array.reduce(function(prev, current) { return prev * current; }, 1);
 }
 
 test("Умножение элементов массива", function() {
     equal(multiply([1, 2, 3, 4, 5]), 120);
 });
-
