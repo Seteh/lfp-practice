@@ -102,7 +102,17 @@ test("Объединение массивов", function() {
 
 // Симметрическая разность двух массивов A и B — это такой массив, куда входят все те элементы первого массива, которые не входят во второй массив, а также те элементы второго массива, которые не входят в первый массив.
 function symmetricDiff(array1, array2) {
-    // здесь будет код
+    var impl = function(left, right, i, accumulator) {
+        if(i === left.length) 
+            return accumulator;
+            
+        if(right.indexOf(left[i]) < 0 && accumulator.indexOf(left[i]) < 0)
+            accumulator.push(left[i]);
+            
+        return impl(left, right, i + 1, accumulator);
+    };
+    
+    return impl(array1, array2, 0, []).concat(impl(array2, array1, 0, []));
 }
 
 test("Симметрическая разность массивов", function() {
